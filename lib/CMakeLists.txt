@@ -183,6 +183,14 @@ GR_INCLUDE_SUBDIRECTORY(plutosdr)
 endif(ENABLE_IIO)
 
 ########################################################################
+# Setup YunSDR component
+########################################################################
+GR_REGISTER_COMPONENT("YunSDR Devices" ENABLE_YUNSDR GNURADIO_YUNSDR_FOUND)
+if(ENABLE_YUNSDR)
+GR_INCLUDE_SUBDIRECTORY(yunsdr)
+endif(ENABLE_YUNSDR)
+
+########################################################################
 # Setup MiriSDR component
 ########################################################################
 GR_REGISTER_COMPONENT("Osmocom MiriSDR" ENABLE_MIRI LIBMIRISDR_FOUND)

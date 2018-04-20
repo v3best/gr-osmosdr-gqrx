@@ -58,6 +58,11 @@
 #include <plutosdr_source_c.h>
 #endif
 
+#ifdef ENABLE_YUNSDR
+#include <yunsdr_source_c.h>
+#endif
+
+
 #ifdef ENABLE_MIRI
 #include <miri_source_c.h>
 #endif
@@ -217,6 +222,10 @@ devices_t device::find(const device_t &hint)
 #endif
 #ifdef ENABLE_FILE
   BOOST_FOREACH( std::string dev, file_source_c::get_devices( fake ) )
+    devices.push_back( device_t(dev) );
+#endif
+#ifdef ENABLE_YUNSDR
+  BOOST_FOREACH( std::string dev, yunsdr_source_c::get_devices() )
     devices.push_back( device_t(dev) );
 #endif
 
