@@ -95,7 +95,7 @@ std::vector< std::string > yunsdr_source_c::get_devices( bool fake )
 {
   std::vector< std::string > devices;
 
-  if ( fake )
+  //if ( fake )
   {
     std::string args = "yunsdr,label='YunSDR'";
     args += ",uri=192.168.1.10";
